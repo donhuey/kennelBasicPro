@@ -34,8 +34,9 @@ const scene = new THREE.Scene();
             // let loader = THREE.GLTFLoader;
             loader.setDRACOLoader(dracoLoader);
             loader.load("/HustleBasicPro.gltf", function (gltf) {
-                gltf.scene.scale.set(0.014, 0.014, 0.014); 
+                gltf.scene.scale.set(0.0161, 0.0161, 0.0161); 
                 let deck = gltf.scene;
+                deck.position.set(0.4,-.2,0)
                 scene.add(deck);
     
                 // animate();
@@ -96,7 +97,7 @@ const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.maxDistance = 3;
-controls.minDistance = 1.5;
+controls.minDistance = 2;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 1;
 

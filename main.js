@@ -10,7 +10,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 const canvas = document.querySelector('.webgl');
 const scene = new THREE.Scene();
-
+scene.background = new THREE.Color ("rgba(153,153,151,255)");
 
     // Instantiate a loader
     const loader = new GLTFLoader();
@@ -34,9 +34,9 @@ const scene = new THREE.Scene();
             // let loader = THREE.GLTFLoader;
             loader.setDRACOLoader(dracoLoader);
             loader.load("/HustleBasicPro.gltf", function (gltf) {
-                gltf.scene.scale.set(0.0161, 0.0161, 0.0161); 
+                gltf.scene.scale.set(0.0128, 0.0128, 0.0128); 
                 let deck = gltf.scene;
-                deck.position.set(0.4,0.2,0)
+                // deck.position.set(0.4,0.2,0)
                 scene.add(deck);
     
                 // animate();
@@ -80,7 +80,7 @@ const sizes = {
 
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width/sizes.height,0.1,1000)
-camera.position.set(1,1.5,1.8);
+camera.position.set(1.8,1,1.8);
 // camera.position.x = 0;
 // camera.position.y = 1;
 // camera.position.z = 0;

@@ -35,7 +35,7 @@ scene.background = new THREE.Color ("rgba(153,153,151,255)");
             loader.setDRACOLoader(dracoLoader);
             loader.load("/HustleBasicPro.gltf", function (gltf) {
                 gltf.scene.scale.set(0.04, 0.04, 0.04); 
-                gltf.scene.position.y = -2;
+                gltf.scene.position.y = -1.5;
                 let deck = gltf.scene;
                 scene.add(deck);
     

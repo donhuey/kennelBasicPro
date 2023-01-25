@@ -34,7 +34,7 @@ scene.background = new THREE.Color ("rgba(153,153,151,255)");
             // let loader = THREE.GLTFLoader;
             loader.setDRACOLoader(dracoLoader);
             loader.load("/HustleBasicPro.gltf", function (gltf) {
-                gltf.scene.scale.set(0.014, 0.014, 0.014); 
+                gltf.scene.scale.set(0.0170, 0.0170, 0.0170); 
                 let deck = gltf.scene;
                 // deck.position.set(0.4,0.2,0)
                 scene.add(deck);
@@ -80,7 +80,7 @@ const sizes = {
 
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width/sizes.height,0.1,1000)
-camera.position.set(1.8,1,1.8);
+camera.position.set(1.8,1.5,3);
 // camera.position.x = 0;
 // camera.position.y = 1;
 // camera.position.z = 0;
@@ -97,7 +97,7 @@ const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true;
 controls.enablePan = false;
 controls.maxDistance = 3;
-controls.minDistance = 2;
+controls.minDistance = 3;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 1;
 
@@ -106,7 +106,27 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.shadowMap.enabled = true
 renderer.gammaOuput = true
 
+
+    function resizeCanvasToDisplaySize() {
+        // const canvas = renderer.domElement;
+        // look up the size the canvas is being displayed
+        const width = canvas.clientWidth;
+        const height = canvas.clientHeight;
+    
+        // adjust displayBuffer size to match
+        if (canvas.width !== width || canvas.height !== height) {
+        // you must pass false here or three.js sadly fights the browser
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    
+        // update any render target sizes here
+        }
+    }
+
 function animate(){
+
+    resizeCanvasToDisplaySize();
     requestAnimationFrame(animate);
     controls.update()
     // deck.rotation.x += 0.01;

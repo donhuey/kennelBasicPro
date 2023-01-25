@@ -34,9 +34,9 @@ scene.background = new THREE.Color ("rgba(153,153,151,255)");
             // let loader = THREE.GLTFLoader;
             loader.setDRACOLoader(dracoLoader);
             loader.load("/HustleBasicPro.gltf", function (gltf) {
-                gltf.scene.scale.set(.01*gltf.scene.scale.x, .01*gltf.scene.scale.y, .01 * gltf.scene.scale.z); 
+                gltf.scene.scale.set(0.04, 0.04, 0.04); 
+                gltf.scene.position.y = -2;
                 let deck = gltf.scene;
-                // deck.position.set(0.4,0.2,0)
                 scene.add(deck);
     
                 // animate();
@@ -80,7 +80,7 @@ const sizes = {
 
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width/sizes.height,0.1,1000)
-camera.position.set(1.8,1.5,3);
+camera.position.set(1.8,3,3);
 // camera.position.x = 0;
 // camera.position.y = 1;
 // camera.position.z = 0;
@@ -96,8 +96,8 @@ const renderer = new THREE.WebGLRenderer({
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true;
 controls.enablePan = false;
-controls.maxDistance = 2;
-controls.minDistance = 2;
+controls.maxDistance = 5;
+controls.minDistance = 4;
 controls.minPolarAngle = 1;
 controls.maxPolarAngle = 1;
 

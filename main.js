@@ -34,9 +34,9 @@ scene.background = new THREE.Color ("rgba(153,153,151,255)");
             // let loader = THREE.GLTFLoader;
             loader.setDRACOLoader(dracoLoader);
             loader.load("/HustleBasicPro.gltf", function (gltf) {
-                gltf.scene.scale.set(0.03, 0.03, 0.03); 
+                gltf.scene.scale.set(0.029, 0.029, 0.029); 
                 gltf.scene.position.y = -.5;
-                gltf.scene.position.x = 1;
+                gltf.scene.position.x = 0;
                 // gltf.scene.position.z = -4;
                 let deck = gltf.scene;
                 scene.add(deck);
@@ -82,7 +82,7 @@ const sizes = {
 
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width/sizes.height,0.1,1000)
-camera.position.set(2.9,3,3);
+camera.position.set(3,3,3);
 // camera.position.x = 0;
 // camera.position.y = 1;
 // camera.position.z = 0;
